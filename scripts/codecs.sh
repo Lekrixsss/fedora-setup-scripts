@@ -17,7 +17,6 @@ if sudo dnf list rpmfusion-free-appstream-data | grep -q 'rpmfusion-free-appstre
         sudo dnf install rpmfusion-free-release-tainted
         sudo dnf install libdvdcss
 fi
-do
 echo "Enabling the RPM Fusion repositories"
 sudo dnf install -y \
   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
