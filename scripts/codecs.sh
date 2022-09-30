@@ -10,16 +10,19 @@ if sudo dnf list rpmfusion-free-appstream-data | grep -q 'rpmfusion-free-appstre
     sudo dnf group upgrade -y --with-optional Multimedia
 
     #Tainted
-    echo Install additional codecs from tainted repo? (May be restricted in some countries) (y/N) && read tainted
+    tained="Install additional codecs from tainted repo? (May be restricted in some countries) (y/N): "
       if [ "$tainted" = y ]
       then
       echo "Installing codecs from tainted"
         sudo dnf install rpmfusion-free-release-tainted
         sudo dnf install libdvdcss
 fi
+do
 echo "Enabling the RPM Fusion repositories"
 sudo dnf install -y \
   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install -y \
   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf group update core
+
+done
